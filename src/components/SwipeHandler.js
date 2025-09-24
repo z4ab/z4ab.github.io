@@ -93,7 +93,7 @@ export default function SwipeHandler({ children }) {
       document.removeEventListener('touchmove', handleTouchMove);
       document.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [router, pathname]);
+  }, [router, pathname, pageOrder]);
 
   return <>{children}</>;
 }

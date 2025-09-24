@@ -27,9 +27,9 @@ export default function Home() {
         className="w-148 h-100 hover:scale-105 text-white font-convection"
       >
         <div className="p-6">
-          <h1 className="text-2xl font-bold">Hi, I'm Zaid</h1>
+          <h1 className="text-2xl font-bold">Hi, I&apos;m Zaid</h1>
           <br />
-          <p className="text-md">I'm a Software Developer based in Toronto and a Computer Science Student at the University of Waterloo</p>
+          <p className="text-md">I&apos;m a Software Developer based in Toronto and a Computer Science Student at the University of Waterloo</p>
         </div>
       </Tile>
     </div>

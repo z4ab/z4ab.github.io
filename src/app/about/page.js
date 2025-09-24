@@ -37,11 +37,11 @@ microphones, consistently delivering high-quality streams to audiences of 100+ c
     ),
     default: (
       <div className="p-6">
-        <h1 className="text-2xl font-bold">Hi, I'm Zaid</h1>
+        <h1 className="text-2xl font-bold">Hi, I&apos;m Zaid</h1>
         <br />
-        <p className="text-md">I'm a Software Developer based in Toronto and a Computer Science Student at the University of Waterloo</p>
+        <p className="text-md">I&apos;m a Software Developer based in Toronto and a Computer Science Student at the University of Waterloo</p>
         <br />
-        <p className="text-md">I'm mainly interested in backend development with Express and FastAPI and game development with c++</p>
+        <p className="text-md">I&apos;m mainly interested in backend development with Express and FastAPI and game development with C++</p>
         <br />
         <p className="text-md">Click on tiles to learn more about my experience</p>
       </div>

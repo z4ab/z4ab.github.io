@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --xbox-green: #107C10;
+  --xbox-gray: #444444;
+  --xbox-light-gray: #6f6f6f;
+  --font-family-convection: var(--font-convection);
+}
+
+.font-convection {
+  font-family: var(--font-convection), sans-serif;
+}
+
+.graydient {
+  background: linear-gradient(to bottom, #404040 0%, #989898 50%, #cfcfcf 100%);
+}

@@ -41,9 +41,10 @@ export default function PageTransition({ children }) {
       setAnimationState('out');
       
       // After exit animation completes, navigate to new page
+      // Timeout accounts for spring physics settling time
       const timer = setTimeout(() => {
         completeTransition();
-      }, 400); // Wait for spring animation to complete
+      }, 500);
       
       return () => clearTimeout(timer);
     } else {

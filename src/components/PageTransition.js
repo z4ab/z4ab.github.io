@@ -8,21 +8,25 @@ const pageVariants = {
   initial: {
     x: '100%',
     opacity: 0,
+    scale: 0.95,
   },
   in: {
     x: "0%",
     opacity: 1,
+    scale: 1,
   },
   out: {
     x: '-100%',
     opacity: 0,
+    scale: 0.95,
   },
 };
 
 const pageTransition = {
-  type: 'tween',
-  ease: 'anticipate',
-  duration: 0.3,
+  type: 'spring',
+  stiffness: 260,
+  damping: 26,
+  mass: 0.8,
 };
 
 export default function PageTransition({ children }) {
@@ -34,14 +38,17 @@ export default function PageTransition({ children }) {
   useEffect(() => {
     if (isTransitioning && pendingRoute) {
       // Start exit animation
-      //setAnimationState('out');
+      setAnimationState('out');
       
       // After exit animation completes, navigate to new page
-      completeTransition();
+      const timer = setTimeout(() => {
+        completeTransition();
+      }, 400); // Wait for spring animation to complete
       
+      return () => clearTimeout(timer);
     } else {
       // Reset to normal state when not transitioning
-        setAnimationState('in');
+      setAnimationState('in');
     }
   }, [isTransitioning, pendingRoute, completeTransition]);
 

@@ -1,22 +1,23 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
 
 const pageVariants = {
-  initial: {
-    x: "100%",
+  initial: (direction) => ({
+    x: direction >= 0 ? "100%" : "-100%",
     opacity: 0,
     scale: 0.95,
-  },
+  }),
   in: {
     x: "0%",
     opacity: 1,
     scale: 1,
   },
-  out: {
-    x: "-100%",
+  out: (direction) => ({
+    x: direction >= 0 ? "-100%" : "100%",
     opacity: 0,
     scale: 0.95,
-  },
+  }),
 };
 
 const pageTransition = {
@@ -26,11 +27,25 @@ const pageTransition = {
   mass: 0.8,
 };
 
-export default function PageTransition({ children, pageKey }) {
+export default function PageTransition({ children, pageKey, direction = 1 }) {
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+
+    html.classList.add("is-transitioning");
+    body.classList.add("is-transitioning");
+
+    return () => {
+      html.classList.remove("is-transitioning");
+      body.classList.remove("is-transitioning");
+    };
+  }, [pageKey]);
+
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait" initial={false} custom={direction}>
       <motion.div
         key={pageKey}
+        custom={direction}
         initial="initial"
         animate="in"
         exit="out"

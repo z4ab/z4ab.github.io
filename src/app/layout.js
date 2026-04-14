@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import NavBar from "../components/NavBar";
-import PageTransition from "../components/PageTransition";
+import RouteTransitionShell from "../components/RouteTransitionShell";
 import SwipeHandler from "../components/SwipeHandler";
 import { PageTransitionProvider } from "../context/PageTransitionContext";
 import "./globals.css";
@@ -35,9 +35,9 @@ export default function RootLayout({ children }) {
           <SwipeHandler>
             <div className="min-h-screen flex flex-col items-center justify-center graydient">
               <NavBar />
-              <PageTransition>
+              <RouteTransitionShell>
                 <div className="flex p-8 gap-2">{children}</div>
-              </PageTransition>
+              </RouteTransitionShell>
             </div>
           </SwipeHandler>
         </PageTransitionProvider>
